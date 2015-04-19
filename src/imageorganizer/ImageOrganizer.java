@@ -273,7 +273,7 @@ public class ImageOrganizer {
 		for (String locality : localities) {
 			if (locality != null) {
 				if (output.equals("")) {
-					output = " " + locality;
+					output = " - " + locality;
 				}
 				else {
 					output += ", " + locality;
@@ -328,11 +328,11 @@ public class ImageOrganizer {
 			if (year != null) {
 				String folderAddressString = createLocalityString(folderAddress);
 				String fileAddressString = createLocalityString(fileAddress);
-				if (fileAddressString.equals("")) fileAddressString = " " + node.fileName;
+				if (fileAddressString.equals("")) fileAddressString =  " - " + node.fileName;
 
 				path = Settings.targetFolder + File.separator + year + File.separator + month + " - " +
-						Settings.months[Integer.parseInt(month) - 1] + File.separator + day + " - " +
-						folderAddressString + File.separator + time + " - " + fileAddressString;
+						Settings.months[Integer.parseInt(month) - 1] + File.separator + day +
+						folderAddressString + File.separator + time + fileAddressString;
 			}
 			else {
 				String title = node.properties.get("source_title");
