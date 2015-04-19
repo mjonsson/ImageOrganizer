@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.Character.Subset;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -320,7 +319,7 @@ public class ImageOrganizer {
 			folderAddress.add(node.properties.get("country"));
 
 			List<String> fileAddress = new ArrayList<String>();
-			fileAddress.add(node.properties.get("street_number"));
+//			fileAddress.add(node.properties.get("street_number"));
 			fileAddress.add(node.properties.get("route"));
 			fileAddress.add(node.properties.get("neighborhood"));
 			if (node.properties.get("neighborhood") == null) fileAddress.add(node.properties.get("sublocality_level_1"));
@@ -331,9 +330,9 @@ public class ImageOrganizer {
 				String fileAddressString = createLocalityString(fileAddress);
 				if (fileAddressString.equals("")) fileAddressString = " " + node.fileName;
 
-				path = Settings.targetFolder + File.separator + year + File.separator + month + " " +
-						Settings.months[Integer.parseInt(month) - 1] + File.separator + day +
-						folderAddressString + File.separator + time + fileAddressString;
+				path = Settings.targetFolder + File.separator + year + File.separator + month + " - " +
+						Settings.months[Integer.parseInt(month) - 1] + File.separator + day + " - " +
+						folderAddressString + File.separator + time + " - " + fileAddressString;
 			}
 			else {
 				String title = node.properties.get("source_title");
